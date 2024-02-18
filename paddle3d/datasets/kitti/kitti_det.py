@@ -28,7 +28,7 @@ from paddle3d.transforms import TransformABC
 class KittiDetDataset(BaseDataset):
     """
     """
-    CLASS_MAP = {'Car': 0, 'Pedestrian': 2}
+    CLASS_MAP = {'Car': 0, 'Pedestrian': 1}
     CLASS_MAP_REVERSE = {value: key for key, value in CLASS_MAP.items()}
 
     def __init__(self,
