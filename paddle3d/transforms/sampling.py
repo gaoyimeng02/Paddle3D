@@ -69,6 +69,13 @@ class SamplingDatabase(TransformABC):
         self.sampler_per_class = dict()
         for cls_name, annos in self.database_anno.items():
             self.sampler_per_class[cls_name] = Sampler(cls_name, annos)
+        #########################
+        print(self.sampler_per_class.keys())  # 打印所有键名
+        if 'Car' in self.sampler_per_class:
+            print(f"'Car' samples count: {len(self.sampler_per_class['Car'].annos)}")
+        else:
+            print("'Car' not found in sampler_per_class")
+
 
     def _filter_min_num_points_in_box(self, database_anno: Dict[str, list]):
         new_database_anno = defaultdict(list)
