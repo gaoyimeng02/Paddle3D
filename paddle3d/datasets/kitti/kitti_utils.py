@@ -231,9 +231,11 @@ def projection_matrix_decomposition(proj):
 
     CR = proj[0:3, 0:3]
     CT = proj[0:3, 3]
-    RinvCinv = np.linalg.inv(CR)
+    # RinvCinv = np.linalg.inv(CR)
+    RinvCinv = CR
     Rinv, Cinv = np.linalg.qr(RinvCinv)
-    C = np.linalg.inv(Cinv)
+    # C = np.linalg.inv(Cinv)
+    C = Cinv
     T = Cinv @ CT
 
     return C, Rinv, T
